@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Datos - 2 Columnas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header { 
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white; 
+            padding: 30px; 
+            text-align: center; 
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.2em; opacity: 0.9; }
+        .content { padding: 40px; }
+        .last-update { 
+            text-align: center; 
+            color: #666; 
+            margin-bottom: 30px; 
+            font-style: italic;
+        }
+        .embed-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%; /* 4:3 ratio */
+        }
+        .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Mis Datos</h1>
+            <p>Información actualizada automáticamente desde Excel</p>
+        </div>
+        <div class="content">
+            <div class="last-update">
+                Actualizado: <span id="timestamp"></span>
+            </div>
+            <div class="embed-container">
+                <!-- PEGA AQUÍ TU CÓDIGO DE EMBED 
+                <iframe width="402" height="346" src="" frameborder="0"></iframe>-->
+                <iframe width="402" height="346" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&wdAllowInteractivity=False&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0"></iframe>
+            </div>
+        </div>
+        <div class="footer">
+            ✅ Datos sincronizados con OneDrive en tiempo real
+        </div>
+    </div>
+
+    <script>
+        // Actualizar timestamp
+        function updateTimestamp() {
+            document.getElementById('timestamp').textContent = 
+                new Date().toLocaleString('es-ES');
+        }
+        updateTimestamp();
+        setInterval(updateTimestamp, 30000); // Cada 30s
+    </script>
+</body>
+</html>
