@@ -13,8 +13,7 @@
             padding: 10px;
         }
         .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
+            max-width: 1200px; margin: 0 auto; 
             background: white; 
             border-radius: 20px; 
             box-shadow: 0 20px 60px rgba(0,0,0,0.15);
@@ -22,91 +21,27 @@
         }
         .header { 
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white; 
-            padding: 25px 20px; 
-            text-align: center; 
+            color: white; padding: 25px 20px; text-align: center; 
         }
-        .header h1 { 
-            font-size: clamp(1.5em, 5vw, 2.5em); 
-            margin-bottom: 5px; 
-            font-weight: 700;
-        }
-        .header p { 
-            font-size: clamp(0.9em, 3vw, 1.1em); 
-            opacity: 0.95; 
-        }
+        .header h1 { font-size: clamp(1.5em, 5vw, 2.5em); margin-bottom: 5px; font-weight: 700; }
+        .header p { font-size: clamp(0.9em, 3vw, 1.1em); opacity: 0.95; }
         .content { padding: 25px 20px; }
-        .last-update { 
-            text-align: center; 
-            color: #666; 
-            margin-bottom: 25px; 
-            font-size: 0.95em;
-            font-style: italic;
-        }
+        .last-update { text-align: center; color: #666; margin-bottom: 25px; font-size: 0.95em; font-style: italic; }
         .embed-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 70%; /* Mejor para móvil */
-            background: #f8f9fa;
-            border-radius: 15px;
-            overflow: hidden;
+            position: relative; width: 100%; height: 0; padding-bottom: 75%;
+            background: #f8f9fa; border-radius: 15px; overflow: hidden;
             box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
         }
         .embed-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100% !important;
-            height: 100% !important;
-            border: none;
-            border-radius: 15px;
-            min-height: 400px;
+            position: absolute; top: 0; left: 0; width: 100% !important; height: 100% !important;
+            border: none; border-radius: 15px; min-height: 500px;
         }
-        .loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 200px;
-            font-size: 1.2em;
-            color: #666;
-        }
-        .spinner {
-            width: 30px; height: 30px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #4facfe;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 15px;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .footer {
-            background: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 0.9em;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        /* 🎯 MÓVIL PERFECTO */
         @media (max-width: 768px) {
-            body { padding: 5px; }
-            .container { border-radius: 15px; margin: 5px; }
-            .header { padding: 20px 15px; }
-            .content { padding: 20px 15px; }
-            .embed-container { 
-                padding-bottom: 80%; 
-                min-height: 450px;
-            }
-            .embed-container iframe { 
-                min-height: 500px !important; 
-            }
+            body { padding: 5px; } .container { border-radius: 15px; margin: 5px; }
+            .header { padding: 20px 15px; } .content { padding: 20px 15px; }
+            .embed-container { padding-bottom: 85%; }
         }
-        
-        @media (max-width: 480px) {
-            .header h1 { font-size: 1.8em; }
-            .embed-container { padding-bottom: 90%; }
-        }
+        .footer { background: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 0.9em; border-top: 1px solid #e9ecef; }
     </style>
 </head>
 <body>
@@ -119,30 +54,26 @@
             <div class="last-update">
                 Última actualización: <span id="timestamp"></span>
             </div>
+            <!-- 🔥 EMBED SIN PESTAÑAS + DINÁMICO A:B -->
             <div class="embed-container">
-                <!-- PEGA TU NUEVO EMBED AQUÍ 
-                <iframe src="PEGAR_AQUI_TU_NUEVO_EMBED" frameborder="0" allowfullscreen></iframe>-->
-            
-            <iframe width="529" height="900" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&Item='CONSULTA'!A1%3AB80&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0"></iframe></div>
+                <iframe 
+                    src="https://onedrive.live.com/embed?resid=TU_RESID&authkey=TU_AUTHKEY&em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdHideRibbon=True&wdBackgroundCount=1&activeCell='Datos%20P%C3%BAblicos'!A1&item='Datos%20P%C3%BAblicos'!A:B"
+                    frameborder="0" allowfullscreen>
+                </iframe>
+                <iframe frameborder="0"  src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&Item='CONSULTA'!A1%3AB80&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0" allowfullscreen></iframe>
+            </div>
         </div>
         <div class="footer">
-            🔄 Sincronizado con OneDrive en tiempo real • 
-            📱 Optimizado para móvil
+            🔄 Sincronizado con OneDrive • 📱 Optimizado móvil • ✅ Sin pestañas
         </div>
     </div>
 
     <script>
-        // Timestamp en tiempo real
         function updateTime() {
-            const now = new Date();
             document.getElementById('timestamp').textContent = 
-                now.toLocaleString('es-ES', { 
-                    hour: '2-digit', minute: '2-digit',
-                    day: '2-digit', month: 'short', year: 'numeric'
-                });
+                new Date().toLocaleString('es-ES');
         }
-        updateTime();
-        setInterval(updateTime, 30000);
+        updateTime(); setInterval(updateTime, 30000);
     </script>
 </body>
 </html>
