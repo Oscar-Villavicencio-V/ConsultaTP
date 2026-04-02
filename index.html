@@ -37,19 +37,19 @@
                 🔄 Refrescado: <span id="refreshCount">0</span>
             </div>
             
-            <!-- TABLA 1: PAGOS - RANGO ESPECÍFICO -->
+            <!-- TABLA 1: PAGOS -->
             <div class="section">
                 <h3>💰 Tabla Pagos</h3>
                 <div class="embed-container">
-                    <iframe src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdHideRibbon=True&wdBackgroundCount=1&activeCell='Tabla1'!A1&item='Tabla1'!A:B"></iframe>
+                    <iframe src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&Item=Tabla1&wdHideGridlines=True&wdDownloadButton=False&wdInConfigurator=True&wdHideHeaders=True&wdHideRibbon=True&wdAllowInteractivity=False&wdBackgroundCount=1"></iframe>
                 </div>
             </div>
             
-            <!-- TABLA 2: DESEMBOLSOS - RANGO ESPECÍFICO -->
+            <!-- TABLA 2: DESEMBOLSOS -->
             <div class="section">
                 <h3>💸 Tabla Desembolsos</h3>
                 <div class="embed-container">
-                    <iframe src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdHideRibbon=True&wdBackgroundCount=1&activeCell='Tabla2'!A1&item='Tabla2'!A:B"></iframe>
+                    <iframe src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&Item=Tabla2&wdHideGridlines=True&wdDownloadButton=False&wdInConfigurator=True&wdHideHeaders=True&wdHideRibbon=True&wdAllowInteractivity=False&wdBackgroundCount=1"></iframe>
                 </div>
             </div>
         </div>
@@ -65,19 +65,19 @@
         }
         updateTime(); setInterval(updateTime, 30000);
         
-        // Auto-refresh TODAS las tablas
+        // Auto-refresh AMBAS tablas
         let refreshCounter = 0;
         function autoRefresh() {
             refreshCounter++;
-            document.querySelectorAll('iframe').forEach(iframe => {
-                const baseUrl = iframe.src.split('&wdHideGridlines')[0];
+            document.querySelectorAll('iframe').forEach((iframe, index) => {
+                const url = iframe.src;
                 const cacheBuster = Date.now();
-                iframe.src = baseUrl + `&v=${cacheBuster}&wdHideGridlines=True&wdHideHeaders=True&wdHideRibbon=True&wdAllowInteractivity=False`;
+                iframe.src = url + (url.includes('?') ? '&' : '?') + `v=${cacheBuster}`;
             });
             document.getElementById('refreshCount').textContent = refreshCounter;
         }
         autoRefresh();
-        setInterval(autoRefresh, 120000); // 2 minutos
+        setInterval(autoRefresh, 120000);
     </script>
 </body>
 </html>
