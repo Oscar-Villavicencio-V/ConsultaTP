@@ -55,9 +55,14 @@
                 Última actualización: <span id="timestamp"></span>
             </div>
             <!-- 🔥 EMBED SIN PESTAÑAS + DINÁMICO A:B -->
+             <h3>📈 Tabla Pagos</h3>
             <div class="embed-container">
 <iframe width="523" height="900" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&Item=Tabla1&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0"></iframe>
             </div>
+            <h3>📈 Tabla Desembolsos</h3>
+             <div class="embed-container">
+                <iframe width="700" height="900" frameborder="0" scrolling="no" src="https://1drv.ms/x/c/61713811d5b05360/IQSHF-vXI5JzQ5EmG6v5W6bJAS0RONKjL4kiNlZEzEDRYHk?em=2&Item=Tabla2&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True&edaebf=rslc0"></iframe>
+             </div>
         </div>
         <div class="footer">
             🔄 Sincronizado con OneDrive • 📱 Optimizado móvil • ✅ Sin pestañas
@@ -71,6 +76,24 @@
         }
         updateTime(); setInterval(updateTime, 30000);
     </script>
+    <script>
+// 🔄 AUTO REFRESH CADA 2 MINUTOS
+let refreshCounter = 0;
+function autoRefresh() {
+    refreshCounter++;
+    const iframe = document.querySelector('iframe');
+    const cacheBuster = Date.now();
+    iframe.src = iframe.src.split('?')[0] + `?v=${cacheBuster}`;
+    document.getElementById('refreshCount').textContent = refreshCounter;
+}
+
+// Inicia inmediatamente y cada 2 min
+autoRefresh();
+setInterval(autoRefresh, 120000); // 2 minutos
+</script>
 </body>
+<div class="footer">
+    🔄 Auto-refrescado: <span id="refreshCount">0</span> veces | 
+    📱 Optimizado móvil
+</div>
 </html>
-<script>console.log('Nueva versión cargada!');</script>
